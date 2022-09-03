@@ -56,7 +56,7 @@ func New(_path string, _type string, _name string) error {
  * @param VALUE valiable is type pointer interface.
  * !If error be have return error.
  */
-func LoadConfig(value *interface{}) error {
+func LoadConfig(value *any) error {
 	if err := viper.Unmarshal(value); err != nil {
 		return err
 	}
