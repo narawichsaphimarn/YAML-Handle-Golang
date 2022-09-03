@@ -1,7 +1,7 @@
 package goyamlenv
 
 const (
-	PATH = "$HOME/resourses"
+	PATH = "$HOME/resources"
 	TYPE = "yaml"
 	NAME = "application"
 )
