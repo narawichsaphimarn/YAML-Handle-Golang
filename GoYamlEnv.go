@@ -41,7 +41,7 @@ func Defualt() error {
 func NewWithBasePath(_basePath string) error {
 	viper.SetConfigName(NAME)
 	viper.SetConfigType(TYPE)
-	viper.AddConfigPath(_basePath)
+	viper.AddConfigPath(strings.Join([]string{_basePath, "/", RESOURCES}, ""))
 	err := viper.ReadInConfig()
 	if err != nil {
 		return err
