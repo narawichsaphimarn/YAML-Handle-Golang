@@ -29,6 +29,29 @@ func Defualt() error {
 }
 
 /**
+ * Method NewWithBasePath
+ * *This method is start of method.
+ * @param BASE_PATH valiable is type string.
+ * ?NAME valiable is `application`
+ * ?TYPE valiable is `yaml`
+ * ?PATH valiable is `$HOME/resourses`
+ * ?Format valiable is {`.`, `_`}
+ * !If error be have return error.
+ */
+func NewWithBasePath(_basePath string) error {
+	viper.SetConfigName(NAME)
+	viper.SetConfigType(TYPE)
+	viper.AddConfigPath(_basePath)
+	err := viper.ReadInConfig()
+	if err != nil {
+		return err
+	}
+	viper.AutomaticEnv()
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	return nil
+}
+
+/**
  * Method new
  * *This method is start of method.
  * @param NAME valiable is type string.
