@@ -1,6 +1,7 @@
 package goyamlenv
 
 import (
+	"log"
 	"strings"
 
 	"github.com/spf13/viper"
@@ -41,6 +42,7 @@ func Defualt() error {
 func NewWithBasePath(_basePath string) error {
 	viper.SetConfigName(NAME)
 	viper.SetConfigType(TYPE)
+	log.Printf("%s%s", "Base path is : ", _basePath)
 	viper.AddConfigPath(strings.Join([]string{_basePath, "/", RESOURCES}, ""))
 	err := viper.ReadInConfig()
 	if err != nil {
